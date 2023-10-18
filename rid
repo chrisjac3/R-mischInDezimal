@@ -1,0 +1,55 @@
+package römischInDezimal;
+
+import java.util.*;
+
+public class RömischInDezimal {
+
+	public static void main(String[] args) {
+
+		// Insert scanner
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Geben Sie eine Dezimalzahl ein die in eine Römische zahl umgerechnet werden soll: ");
+
+		// Roman letters assigned the corresponding value
+		int i = 1;
+		int v = 5;
+		int x = 10;
+		int l = 50;
+		int c = 100;
+		int d = 500;
+		int m = 1000;
+
+		String rom = sc.nextLine();
+
+		for (int j = 0; j < rom.length(); j = j + 1) {
+
+			if (rom.charAt(j) == 'I') {
+
+				j = i;
+			} else if (rom.charAt(j) == 'V') {
+
+				j = v;
+			} else if (rom.charAt(j) == 'X') {
+
+				j = x;
+			} else if (rom.charAt(j) == 'L') {
+
+				j = l;
+
+			} else if (rom.charAt(j) == 'C') {
+
+				j = c;
+
+			} else if (rom.charAt(j) == 'D') {
+
+				j = d;
+			} else if (rom.charAt(j) == 'M') {
+
+				j = m;
+			}
+			
+			System.out.println(j);
+		}
+	}
+}
