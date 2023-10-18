@@ -19,6 +19,7 @@ public class RömischInDezimal {
 		int c = 100;
 		int d = 500;
 		int m = 1000;
+		int counter = 0;
 
 		String rom = sc.nextLine();
 
@@ -26,30 +27,31 @@ public class RömischInDezimal {
 
 			if (rom.charAt(j) == 'I') {
 
-				j = i;
+				counter = counter + i;
 			} else if (rom.charAt(j) == 'V') {
 
-				j = v;
+				counter = counter + v;
 			} else if (rom.charAt(j) == 'X') {
 
-				j = x;
+				counter = counter + x;
 			} else if (rom.charAt(j) == 'L') {
 
-				j = l;
+				counter = counter + l;
 
 			} else if (rom.charAt(j) == 'C') {
 
-				j = c;
+				counter = counter + c;
 
 			} else if (rom.charAt(j) == 'D') {
 
-				j = d;
+				counter = counter + d;
 			} else if (rom.charAt(j) == 'M') {
 
-				j = m;
+				counter = counter + m;
 			}
 			
-			System.out.println(j);
+			
 		}
+		System.out.println(counter);
 	}
 }
