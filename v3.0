@@ -1,0 +1,122 @@
+package römischInDezimal;
+
+import java.util.*;
+
+public class römischInDezimal {
+
+	public static void main(String[] args) {
+
+		// Insert scanner
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Geben Sie eine Dezimalzahl ein die in eine Römische zahl umgerechnet werden soll: ");
+
+		// Roman letters assigned the corresponding value
+		int i = 1;
+		int v = 5;
+		int x = 10;
+		int l = 50;
+		int c = 100;
+		int d = 500;
+		int m = 1000;
+		int counter = 0;
+
+		//String with roman letters typed in & changes every letter to an upper case letter
+		String rom = sc.nextLine().toUpperCase();
+
+		//for loop repeats as often as letters in string & goes to next letter 
+		for (int j = 0; j < rom.length(); j++) {
+			
+			//saves current letter
+			char currentChar = rom.charAt(j);
+			
+			//saves current value 
+			int currentValue = 0;
+
+			//if the current letter is I it adds 1 to the current value except after the I comes V or X, then it adds -1 to the current value
+			if (currentChar == 'I') {
+				
+				if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'V' || rom.charAt(j + 1) == 'X')) {
+					currentValue = -i;
+				} 
+				
+				//if right after I there is not V and X and I or the third letter after I is I the roman letter is wrong
+				else if (j + 1 < rom.length() && (rom.charAt(j + 1) != 'V' && rom.charAt(j + 1) != 'X'  && rom.charAt(j + 1) != 'I' || j + 3 < rom.length() && rom.charAt(j + 3) == 'I')) {
+					System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+					return;
+				}
+				else {
+					currentValue = i;
+				}
+				
+				//if the current letter is V it adds 5 to the current value
+			} 
+			else if (currentChar == 'V') {
+				currentValue = v;
+				
+				//if the current letter is X it adds 10 to the current Value except after the X comes L or C, then it adds -10 to the current value
+			} 
+			else if (currentChar == 'X') {
+				
+				if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C')) {
+					currentValue = -x;	
+				} 
+				
+				//if right after X there is not L and C and X or the third letter after X is X the roman letter is wrong the roman letter is wrong
+				else if (j + 1 < rom.length() && (rom.charAt(j + 1) != 'L' && rom.charAt(j + 1) != 'C'  && rom.charAt(j + 1) != 'X' || j + 3 < rom.length() && rom.charAt(j + 3) == 'X')) {
+					System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+					return;
+				}
+				else {
+					currentValue = x;
+				}
+			} 
+			
+			//if the current letter is L it adds 50 to the current value
+			else if (currentChar == 'L') {
+				currentValue = l;
+			} 
+			
+			//if the current letter is C it adds 100 to the current value except after C comes D or M, then it adds -100 to the current value
+			else if (currentChar == 'C') {
+				
+				if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
+					currentValue = -c;	
+				} 
+				
+				//if right after C there is not D and M and C or the third letter after C is C the roman letter is wrong the roman letter is wrong
+				else if (j + 1 < rom.length() && (rom.charAt(j + 1) != 'D' && rom.charAt(j + 1) != 'M'  && rom.charAt(j + 1) != 'C' || j + 3 < rom.length() && rom.charAt(j + 3) == 'C')) {
+					System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+					return;
+				}
+				else {
+					currentValue = c;
+				}
+				
+			} 
+			
+			//if the current letter is D it adds 500 to the current value
+			else if (currentChar == 'D') {
+				currentValue = d;
+				
+			} 
+			
+			//if the current letter is M it adds 1000 to the current value
+			else if (currentChar == 'M') {
+				currentValue = m;
+			}
+			
+			//if the current letter is not a roman letter the console says so and the for loop ends immediately
+			else {
+				System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+				return;
+			}
+			//adds the current value (final value) to the counter
+			counter += currentValue;
+		}
+
+		System.out.println("Die Dezimalzahl ist: " + counter);
+		
+		sc.close();
+	}
+}
