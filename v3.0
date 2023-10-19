@@ -42,8 +42,8 @@ public class römischZuDezimal {
 							currentValue = -i;
 						} 
 						
-						//if right after I there is not V and X and I or the third letter after I is I the roman letter is wrong
-						else if (j + 1 < rom.length() && (rom.charAt(j + 1) != 'V' && rom.charAt(j + 1) != 'X'  && rom.charAt(j + 1) != 'I' || j + 3 < rom.length() && rom.charAt(j + 3) == 'I')) {
+						//if right after I there is L or C or D or M or the third letter after I is I the roman letter is wrong
+						else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L'|| rom.charAt(j + 1) == 'C' || rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M' || j + 3 < rom.length() && rom.charAt(j + 3) == 'I')) {
 							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 							return;
 						}
@@ -53,22 +53,27 @@ public class römischZuDezimal {
 					} 
 					//if the current letter is V it adds 5 to the current value
 					else if (currentChar == 'V') {
-						if (j + 1 < rom.length() && rom.charAt(j + 1) == 'V') {
+						
+						//if right after V does not come I the roman letter is wrong
+						if (j + 1 < rom.length() && rom.charAt(j + 1) != 'I') {
 							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 							return;
 						}
 						else {
 						currentValue = v;
 						}
+						
 						//if the current letter is X it adds 10 to the current Value except after the X comes L or C, then it adds -10 to the current value
+			
 					} 
 					else if (currentChar == 'X') {
 						
 						if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C')) {
 							currentValue = -x;	
 						} 
-						//if right after X there is not L and C and X or the third letter after X is X the roman letter is wrong the roman letter is wrong
-						else if (j + 1 < rom.length() && (rom.charAt(j + 1) != 'L' && rom.charAt(j + 1) != 'C'  && rom.charAt(j + 1) != 'X' || j + 3 < rom.length() && rom.charAt(j + 3) == 'X')) {
+				
+						//if right after X comes D or M or the third letter after X is X the roman letter is wrong
+						else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D'|| rom.charAt(j + 1) == 'M' || j + 3 < rom.length() && rom.charAt(j + 3) == 'X')) {
 							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 							return;
 						}
@@ -77,6 +82,7 @@ public class römischZuDezimal {
 						}
 					} 
 					//if the current letter is L it adds 50 to the current value
+					//if right after L comes L the roman letter is wrong
 					else if (currentChar == 'L') {
 						if (j + 1 < rom.length() && rom.charAt(j + 1) == 'L') {
 							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
@@ -92,9 +98,9 @@ public class römischZuDezimal {
 						if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
 							currentValue = -c;	
 						} 
-						
-						//if right after C there is not D and M and C or the third letter after C is C the roman letter is wrong the roman letter is wrong
-						else if (j + 1 < rom.length() && (rom.charAt(j + 1) != 'D' && rom.charAt(j + 1) != 'M'  && rom.charAt(j + 1) != 'C' || j + 3 < rom.length() && rom.charAt(j + 3) == 'C')) {
+			
+						//if right after C there is L or the third letter after C is C the roman letter is wrong 
+						else if (j + 1 < rom.length() &&  (rom.charAt(j + 1) == 'L' || j + 3 < rom.length() && rom.charAt(j + 3) == 'C')) {
 							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 							return;
 						}
@@ -104,6 +110,7 @@ public class römischZuDezimal {
 					} 
 					
 					//if the current letter is D it adds 500 to the current value
+					//if right after D comes D the roman letter is wrong
 					else if (currentChar == 'D') {
 						if (j + 1 < rom.length() && rom.charAt(j + 1) == 'D') {
 							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
@@ -115,6 +122,7 @@ public class römischZuDezimal {
 					} 
 					
 					//if the current letter is M it adds 1000 to the current value
+					//if right after M comes M the roman letter is wrong
 					else if (currentChar == 'M') {
 						if (j + 3 < rom.length() && (rom.charAt(j + 3) == 'M')) {
 							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
