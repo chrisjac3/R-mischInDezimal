@@ -32,7 +32,7 @@ public class Testat_1 {
 				römischInDezimal(sc);
 				break;
 				
-			//if 2 is selected then the code stops and if none of those is selected the code asks for another input
+			//if 0 is selected then the code stops and if none of those is selected the code asks for another input
 			case 0:
 				System.out.println("Das Programm wurde beendet.");
 				break;
