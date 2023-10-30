@@ -1,0 +1,114 @@
+package dezimalInRömisch;
+
+import java.util.*;
+
+public class DezimalinRömisch {
+
+	public static void main(String[] args) {
+
+		// insert scanner allows to read users input from the console
+		Scanner sc = new Scanner(System.in);
+
+		// variable that saves the users choice
+		String choice;
+
+		
+		do {
+			// asking user for decimal number
+			System.out.println(
+					"Bitte geben Sie eine Dezimalzahl ein, welche in eine römische Zahl umgerechnet werden soll:");
+
+			// transfers users choice to the integer "dez"
+			int dez = sc.nextInt();
+			String rom = "";
+
+			// while loop as long as the decimal number is bigger than 0
+			while (dez > 0) {
+				// if the decimal number is 4000 or bigger the program stops
+				if (dez >= 4000) {
+					System.out.println(
+							"Dieser Rechner bietet nur die Möglichkeit Dezimalzahlen bis einschlißlich 3999 umzurechnen");
+					dez = 0;
+					// if the decimal number is 1000 or bigger "M" is added to the roman Number and
+					// 1000 is subtracted from the decimal number
+				} else if (dez >= 1000) {
+					rom = rom + "M";
+					dez = dez - 1000;
+					// if the decimal number is 900 or bigger "CM" is added to the roman Number and
+					// 900 is subtracted from the decimal number
+				} else if (dez >= 900) {
+					rom = rom + "CM";
+					dez = dez - 900;
+					// if the decimal number is 500 or bigger "D" is added to the roman Number and
+					// 500 is subtracted from the decimal number
+				} else if (dez >= 500) {
+					rom = rom + "D";
+					dez = dez - 500;
+					// if the decimal number is 400 or bigger "CD" is added to the roman Number and
+					// 400 is subtracted from the decimal number
+				} else if (dez >= 400) {
+					rom = rom + "CD";
+					dez = dez - 400;
+					// if the decimal number is 100 or bigger "C" is added to the roman Number and
+					// 100 is subtracted from the decimal number
+				} else if (dez >= 100) {
+					rom = rom + "C";
+					dez = dez - 100;
+					// if the decimal number is 90 or bigger "XC" is added to the roman Number and
+					// 90 is subtracted from the decimal number
+				} else if (dez >= 90) {
+					rom = rom + "XC";
+					dez = dez - 90;
+					// if the decimal number is 50 or bigger "L" is added to the roman Number and 50
+					// is subtracted from the decimal number
+				} else if (dez >= 50) {
+					rom = rom + "L";
+					dez = dez - 50;
+					// if the decimal number is 40 or bigger "XL" is added to the roman Number and
+					// 40 is subtracted from the decimal number
+				} else if (dez >= 40) {
+					rom = rom + "XL";
+					dez = dez - 40;
+					// if the decimal number is 10 or bigger "X" is added to the roman Number and 10
+					// is subtracted from the decimal number
+				} else if (dez >= 10) {
+					rom = rom + "X";
+					dez = dez - 10;
+					// if the decimal number is 9 or bigger "IX" is added to the roman Number and 9
+					// is subtracted from the decimal number
+				} else if (dez >= 9) {
+					rom = rom + "IX";
+					dez = dez - 9;
+					// if the decimal number is 5 or bigger "V" is added to the roman Number and 5
+					// is subtracted from the decimal number
+				} else if (dez >= 5) {
+					rom = rom + "V";
+					dez = dez - 5;
+					// if the decimal number is 4 or bigger "IV" is added to the roman Number and 4
+					// is subtracted from the decimal number
+				} else if (dez >= 4) {
+					rom = rom + "IV";
+					dez = dez - 4;
+					// if the decimal number is 1 or bigger "I" is added to the roman Number and 1
+					// is subtracted from the decimal number
+				} else if (dez >= 1) {
+					rom = rom + "I";
+					dez = dez - 1;
+				}
+			}
+			System.out.println(rom);
+			
+			// Discard the line break after entering "j" or "n".
+			sc.nextLine();
+
+			System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
+			choice = sc.nextLine();
+
+			// as long as the choice equals "j" the loop repeats
+		} while (choice.equalsIgnoreCase("j"));
+			// if the choice equals "n" the code stops
+		System.out.println("Das Programm wurde beendet.");
+
+		sc.close();
+	}
+}
