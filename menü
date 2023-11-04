@@ -1,0 +1,53 @@
+package romanDecimalConverter;
+import java.util.*;
+public class romanDecimalConverter {
+
+	public static void main(String[] args) {
+		//insert scanner allows to read users input from the console 
+		Scanner sc = new Scanner(System.in);
+		
+		//variable that saves user's choice
+		char choice;
+		
+		//creating menu which only displays once
+		System.out.println("Menü:\nBitte entscheiden Sie sich für eine Auswahl.");	
+		System.out.println("1.Umwandlung von römischen Zahlen in Dezimalzahlen");
+		System.out.println("2.Umwandlung von Dezimalzahlen in römischen Zahlen");
+		System.out.println("3.Programm beenden");
+		
+		do {
+		//reads user's choice
+		choice = sc.next().charAt(0);
+			
+			switch (choice) {
+				case '1':
+					System.out.println("Sie haben sich für Option 1 entschieden");
+					break;
+		
+		
+				case '2': 
+					System.out.println("Sie haben sich für Option 2 entschieden");
+					break;
+		
+				case '3':
+					System.out.println("Sie haben sich dazu entschieden, dass Programm zu beenden");
+					break;
+		
+				default:
+					System.out.println("Ihre Auswahl ist ungültig. Bitte erneut eingeben");
+					break;
+			}
+					
+		//ends do-while loop
+		} while (choice!=4);
+		
+	
+		//closing the scanner
+		sc.close();	
+			
+		
+		
+		}
+		
+	}
+
