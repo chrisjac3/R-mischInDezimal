@@ -5,43 +5,43 @@ public class Testat_1 {
 		public static void main(String[] args) {
 
 			// insert scanner allows to read users input from the console
-			Scanner sc = new Scanner(System.in);
+						Scanner sc = new Scanner(System.in);
 
-			// variable that saves the users choice
-			char choice;
-			
-			do {
-				System.out.println("Wählen Sie einen Rechner:");
-				System.out.println("1. Dezimal in Römisch umrechnen");
-				System.out.println("2. Römisch in Dezimal umrechnen");
-				System.out.println("3. Programm beenden");
+						// variable that saves the users choice
+						char choice;
+						
+						do {
+							System.out.println("Wählen Sie einen Rechner:");
+							System.out.println("1. Dezimal in Römisch umrechnen");
+							System.out.println("2. Römisch in Dezimal umrechnen");
+							System.out.println("3. Programm beenden");
 
-				choice = sc.next().charAt(0);
+							choice = sc.next().charAt(0);
 
-				switch (choice) {
-				//if 1 is selected then the code jumps to the "dezimalInRömisch" method
-				case '1':
-					dezimalInRömisch(sc);
-					break;
-					
-				//if 2 is selected then the code jumps to the "römischInDezimal" method
-				case '2':
-					römischInDezimal(sc);
-					break;
-					
-				//if 3 is selected then the code stops and if none of those is selected the code asks for another input
-				case '3':
-					System.out.println("Das Programm wurde beendet.");
-					return;
-				default:
-					System.out.println("Ungültige Auswahl. Bitte wählen Sie erneut.");
-				}
+							switch (choice) {
+							//if 1 is selected then the code jumps to the "dezimalInRömisch" method
+							case '1':
+								dezimalInRömisch(sc);
+								break;
+								
+							//if 2 is selected then the code jumps to the "römischInDezimal" method
+							case '2':
+								römischInDezimal(sc);
+								break;
+								
+							//if 3 is selected then the code stops and if none of those is selected the code asks for another input
+							case '3':
+								System.out.println("Das Programm wurde beendet.");
+								return;
+							default:
+								System.out.println("Ungültige Auswahl. Bitte wählen Sie erneut.");
+							}
 
-			} while (choice != 4);
+						} while (choice != 3);
 
-			//the scanner closes
-			sc.close();
-		}
+						//the scanner closes
+						sc.close();
+					}
 
 		public static void dezimalInRömisch(Scanner sc) {
 			String choice;
