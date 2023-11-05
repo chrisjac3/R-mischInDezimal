@@ -2,7 +2,7 @@ package testat_1;
 import java.util.*;
 public class Testat_1 {
 
-	public static void main(String[] args) {
+		public static void main(String[] args) {
 
 			// insert scanner allows to read users input from the console
 			Scanner sc = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class Testat_1 {
 				//if 3 is selected then the code stops and if none of those is selected the code asks for another input
 				case '3':
 					System.out.println("Das Programm wurde beendet.");
-					break;
+					return;
 				default:
 					System.out.println("Ungültige Auswahl. Bitte wählen Sie erneut.");
 				}
@@ -137,7 +137,7 @@ public class Testat_1 {
 				System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
 				choice = sc.nextLine();
 
-				// as long as the choice equals "j" the loop repeats
+				// if the choice equals "j" the loop repeats
 			} while (choice.equalsIgnoreCase("j"));
 
 		}
