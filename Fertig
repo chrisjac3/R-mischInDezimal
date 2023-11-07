@@ -1,301 +1,308 @@
 package testat_1;
+
 import java.util.*;
+
 public class Testat_1 {
 
-		public static void main(String[] args) {
+	public static void main(String[] args) {
 
-			// insert scanner allows to read users input from the console
-						Scanner sc = new Scanner(System.in);
+		// insert scanner allows to read users input from the console
+		Scanner sc = new Scanner(System.in);
 
-						// variable that saves the users choice
-						char choice;
-						
-						do {
-							System.out.println("Wählen Sie einen Rechner:");
-							System.out.println("1. Dezimal in Römisch umrechnen");
-							System.out.println("2. Römisch in Dezimal umrechnen");
-							System.out.println("3. Programm beenden");
+		// variable that saves the users choice
+		char choice;
 
-							choice = sc.next().charAt(0);
+		do {
+			System.out.println("Wählen Sie einen Rechner:");
+			System.out.println("1. Dezimal in Römisch umrechnen");
+			System.out.println("2. Römisch in Dezimal umrechnen");
+			System.out.println("3. Programm beenden");
 
-							switch (choice) {
-							//if 1 is selected then the code jumps to the "dezimalInRömisch" method
-							case '1':
-								dezimalInRömisch(sc);
-								break;
-								
-							//if 2 is selected then the code jumps to the "römischInDezimal" method
-							case '2':
-								römischInDezimal(sc);
-								break;
-								
-							//if 3 is selected then the code stops and if none of those is selected the code asks for another input
-							case '3':
-								System.out.println("Das Programm wurde beendet.");
-								return;
-							default:
-								System.out.println("Ungültige Auswahl. Bitte wählen Sie erneut.");
-							}
+			choice = sc.next().charAt(0);
 
-						} while (choice != 3);
+			switch (choice) {
+			// if 1 is selected then the code jumps to the "dezimalInRömisch" method
+			case '1':
+				dezimalInRömisch(sc);
+				break;
 
-						//the scanner closes
-						sc.close();
-					}
+			// if 2 is selected then the code jumps to the "römischInDezimal" method
+			case '2':
+				römischInDezimal(sc);
+				break;
 
-		public static void dezimalInRömisch(Scanner sc) {
-			String choice;
+			// if 3 is selected then the code stops and if none of those is selected the
+			// code asks for another input
+			case '3':
+				System.out.println("Das Programm wurde beendet.");
+				return;
+			default:
+				System.out.println("Ungültige Auswahl. Bitte wählen Sie erneut.");
+			}
 
-			do {
-				// asking user for decimal number
-				System.out.println(
-						"Bitte geben Sie eine Dezimalzahl ein, welche in eine römische Zahl umgerechnet werden soll:");
+		} while (choice != 3);
 
-				// transfers users choice to the integer "dez"
-				int dez = sc.nextInt();
-				String rom = "";
-
-				// while loop as long as the decimal number is bigger than 0
-				while (dez > 0) {
-					// if the decimal number is 4000 or bigger the program stops
-					if (dez >= 4000) {
-						System.out.println(
-								"Dieser Rechner bietet nur die Möglichkeit Dezimalzahlen bis einschlißlich 3999 umzurechnen");
-						dez = 0;
-						// if the decimal number is 1000 or bigger "M" is added to the roman Number and
-						// 1000 is subtracted from the decimal number
-					} else if (dez >= 1000) {
-						rom = rom + "M";
-						dez = dez - 1000;
-						// if the decimal number is 900 or bigger "CM" is added to the roman Number and
-						// 900 is subtracted from the decimal number
-					} else if (dez >= 900) {
-						rom = rom + "CM";
-						dez = dez - 900;
-						// if the decimal number is 500 or bigger "D" is added to the roman Number and
-						// 500 is subtracted from the decimal number
-					} else if (dez >= 500) {
-						rom = rom + "D";
-						dez = dez - 500;
-						// if the decimal number is 400 or bigger "CD" is added to the roman Number and
-						// 400 is subtracted from the decimal number
-					} else if (dez >= 400) {
-						rom = rom + "CD";
-						dez = dez - 400;
-						// if the decimal number is 100 or bigger "C" is added to the roman Number and
-						// 100 is subtracted from the decimal number
-					} else if (dez >= 100) {
-						rom = rom + "C";
-						dez = dez - 100;
-						// if the decimal number is 90 or bigger "XC" is added to the roman Number and
-						// 90 is subtracted from the decimal number
-					} else if (dez >= 90) {
-						rom = rom + "XC";
-						dez = dez - 90;
-						// if the decimal number is 50 or bigger "L" is added to the roman Number and 50
-						// is subtracted from the decimal number
-					} else if (dez >= 50) {
-						rom = rom + "L";
-						dez = dez - 50;
-						// if the decimal number is 40 or bigger "XL" is added to the roman Number and
-						// 40 is subtracted from the decimal number
-					} else if (dez >= 40) {
-						rom = rom + "XL";
-						dez = dez - 40;
-						// if the decimal number is 10 or bigger "X" is added to the roman Number and 10
-						// is subtracted from the decimal number
-					} else if (dez >= 10) {
-						rom = rom + "X";
-						dez = dez - 10;
-						// if the decimal number is 9 or bigger "IX" is added to the roman Number and 9
-						// is subtracted from the decimal number
-					} else if (dez >= 9) {
-						rom = rom + "IX";
-						dez = dez - 9;
-						// if the decimal number is 5 or bigger "V" is added to the roman Number and 5
-						// is subtracted from the decimal number
-					} else if (dez >= 5) {
-						rom = rom + "V";
-						dez = dez - 5;
-						// if the decimal number is 4 or bigger "IV" is added to the roman Number and 4
-						// is subtracted from the decimal number
-					} else if (dez >= 4) {
-						rom = rom + "IV";
-						dez = dez - 4;
-						// if the decimal number is 1 or bigger "I" is added to the roman Number and 1
-						// is subtracted from the decimal number
-					} else if (dez >= 1) {
-						rom = rom + "I";
-						dez = dez - 1;
-					}
-				}
-				System.out.println(rom);
-
-				// Discard the line break after entering "j" or "n".
-				sc.nextLine();
-
-				System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
-				choice = sc.nextLine();
-
-				// if the choice equals "j" the loop repeats
-			} while (choice.equalsIgnoreCase("j"));
-
-		}
-
-		public static void römischInDezimal(Scanner sc) {
-
-			String choice;
-			do {
-
-				// asking user for decimal number
-				System.out.println(
-						"Bitte geben Sie eine römische Zahl ein, welche in eine Dezimalzahl umgerechnet werden soll:");
-				
-				//Empty input buffer
-				sc.nextLine();
-
-				// declaring Roman letters to their corresponding value
-				int i = 1;
-				int v = 5;
-				int x = 10;
-				int l = 50;
-				int c = 100;
-				int d = 500;
-				int m = 1000;
-
-				// insert counter saves the cumulative value of decimal number
-				int counter = 0;
-
-				// expects string from user and reads it from the console & changes every letter
-				// to an upper case letter
-				String rom = sc.nextLine().toUpperCase();
-
-				// for loop runs through each element of the string sequentially
-				for (int j = 0; j < rom.length(); j++) {
-
-					// saves current letter
-					char currentChar = rom.charAt(j);
-
-					// saves current value
-					int currentValue = 0;
-
-					// if current letter is I it adds 1 to current value unless after I comes V or
-					// X, then it adds -1 to the current value
-					if (currentChar == 'I') {
-
-						if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'V' || rom.charAt(j + 1) == 'X')) {
-							currentValue = -i;
-						}
-
-						// if right after I there is L or C or D or M or the third letter after I is I
-						// the roman letter is wrong
-						else if (j + 1 < rom.length()
-								&& (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C' || rom.charAt(j + 1) == 'D'
-										|| rom.charAt(j + 1) == 'M' || j + 3 < rom.length() && rom.charAt(j + 3) == 'I')) {
-							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-							return;
-						} else {
-							currentValue = i;
-						}
-					}
-					// if the current letter is V it adds 5 to the current value
-					else if (currentChar == 'V') {
-
-						// if right after V isn't I the roman letter is wrong
-						if (j + 1 < rom.length() && rom.charAt(j + 1) != 'I') {
-							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-							return;
-						} else {
-							currentValue = v;
-						}
-
-						// if the current letter is X it adds 10 to the current Value unless after the X
-						// comes L or C, then it adds -10 to the current value
-
-					} else if (currentChar == 'X') {
-
-						if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C')) {
-							currentValue = -x;
-						}
-
-						// if right after X comes D or M or the third letter after X is X the roman
-						// letter is wrong
-						else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M'
-								|| j + 3 < rom.length() && rom.charAt(j + 3) == 'X')) {
-							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-							return;
-						} else {
-							currentValue = x;
-						}
-					}
-					// if the current letter is L it adds 50 to the current value
-					else if (currentChar == 'L') {
-
-						// if right after L comes L or C or D or M the roman letter is wrong
-						if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C'
-								|| rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
-							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-							return;
-						} else {
-							currentValue = l;
-						}
-					}
-					// if the current letter is C it adds 100 to the current value except after C
-					// comes D or M, then it adds -100 to the current value
-					else if (currentChar == 'C') {
-
-						if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
-							currentValue = -c;
-						}
-
-						// if the third letter after C is C the roman letter is wrong
-						else if (j + 3 < rom.length() && rom.charAt(j + 1) == 'C' && rom.charAt(j + 2) == 'C'
-								&& rom.charAt(j + 3) == 'C') {
-							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-							return;
-						} else {
-							currentValue = c;
-						}
-					}
-
-					// if the current letter is D it adds 500 to the current value
-					// if right after D comes D the roman letter is wrong
-					else if (currentChar == 'D') {
-						if (j + 1 < rom.length() && rom.charAt(j + 1) == 'D') {
-							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-							return;
-						} else {
-							currentValue = d;
-						}
-					}
-
-					// if the current letter is M it adds 1000 to the current value
-					// if right after M comes M the roman letter is wrong
-					else if (currentChar == 'M') {
-						if (j + 3 < rom.length() && rom.charAt(j + 1) == 'M'
-								&& (rom.charAt(j + 2) == 'M' && rom.charAt(j + 3) == 'M')) {
-							System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-							return;
-						} else {
-							currentValue = m;
-						}
-					}
-					// if the current letter is not a roman letter the console point it out and the
-					// for loop ends immediately
-					else {
-						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
-						return;
-					}
-					// adds the current value (final value) to the counter
-					counter += currentValue;
-				}
-
-				System.out.println("Die Dezimalzahl ist: " + counter);
-
-				System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
-				choice = sc.nextLine();
-
-				// if the choice is "j" the loop repeats
-			} while (choice.equalsIgnoreCase("j"));
-		}
+		// the scanner closes
+		sc.close();
 	}
+
+	public static void dezimalInRömisch(Scanner sc) {
+		String choice;
+
+		do {
+			// asking user for decimal number
+			System.out.println(
+					"Bitte geben Sie eine Dezimalzahl ein, welche in eine römische Zahl umgerechnet werden soll:");
+
+			// transfers users choice to the integer "dez"
+			int dez = sc.nextInt();
+			String rom = "";
+
+			// while loop as long as the decimal number is bigger than 0
+			while (dez > 0) {
+				// if the decimal number is 4000 or bigger the program stops
+				if (dez >= 4000) {
+					System.out.println(
+							"Dieser Rechner bietet nur die Möglichkeit Dezimalzahlen bis einschlißlich 3999 umzurechnen");
+					dez = 0;
+					// if the decimal number is 1000 or bigger "M" is added to the roman Number and
+					// 1000 is subtracted from the decimal number
+				} else if (dez >= 1000) {
+					rom = rom + "M";
+					dez = dez - 1000;
+					// if the decimal number is 900 or bigger "CM" is added to the roman Number and
+					// 900 is subtracted from the decimal number
+				} else if (dez >= 900) {
+					rom = rom + "CM";
+					dez = dez - 900;
+					// if the decimal number is 500 or bigger "D" is added to the roman Number and
+					// 500 is subtracted from the decimal number
+				} else if (dez >= 500) {
+					rom = rom + "D";
+					dez = dez - 500;
+					// if the decimal number is 400 or bigger "CD" is added to the roman Number and
+					// 400 is subtracted from the decimal number
+				} else if (dez >= 400) {
+					rom = rom + "CD";
+					dez = dez - 400;
+					// if the decimal number is 100 or bigger "C" is added to the roman Number and
+					// 100 is subtracted from the decimal number
+				} else if (dez >= 100) {
+					rom = rom + "C";
+					dez = dez - 100;
+					// if the decimal number is 90 or bigger "XC" is added to the roman Number and
+					// 90 is subtracted from the decimal number
+				} else if (dez >= 90) {
+					rom = rom + "XC";
+					dez = dez - 90;
+					// if the decimal number is 50 or bigger "L" is added to the roman Number and 50
+					// is subtracted from the decimal number
+				} else if (dez >= 50) {
+					rom = rom + "L";
+					dez = dez - 50;
+					// if the decimal number is 40 or bigger "XL" is added to the roman Number and
+					// 40 is subtracted from the decimal number
+				} else if (dez >= 40) {
+					rom = rom + "XL";
+					dez = dez - 40;
+					// if the decimal number is 10 or bigger "X" is added to the roman Number and 10
+					// is subtracted from the decimal number
+				} else if (dez >= 10) {
+					rom = rom + "X";
+					dez = dez - 10;
+					// if the decimal number is 9 or bigger "IX" is added to the roman Number and 9
+					// is subtracted from the decimal number
+				} else if (dez >= 9) {
+					rom = rom + "IX";
+					dez = dez - 9;
+					// if the decimal number is 5 or bigger "V" is added to the roman Number and 5
+					// is subtracted from the decimal number
+				} else if (dez >= 5) {
+					rom = rom + "V";
+					dez = dez - 5;
+					// if the decimal number is 4 or bigger "IV" is added to the roman Number and 4
+					// is subtracted from the decimal number
+				} else if (dez >= 4) {
+					rom = rom + "IV";
+					dez = dez - 4;
+					// if the decimal number is 1 or bigger "I" is added to the roman Number and 1
+					// is subtracted from the decimal number
+				} else if (dez >= 1) {
+					rom = rom + "I";
+					dez = dez - 1;
+				}
+			}
+			System.out.println("Die Dezimalzahl in römischen Buchstaben lautet: " + rom);
+
+			// Discard the line break after entering "j" or "n".
+			sc.nextLine();
+
+			System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
+			
+			choice = sc.nextLine();
+
+			// if the choice equals "j" the loop repeats
+		} while (choice.equalsIgnoreCase("j"));
+
+	}
+
+	public static void römischInDezimal(Scanner sc) {
+
+		String choice;
+		
+		//clears the line break from the scanner
+		sc.nextLine();
+
+		do {
+
+			// asking user for decimal number
+			System.out.println(
+					"Bitte geben Sie eine römische Zahl ein, welche in eine Dezimalzahl umgerechnet werden soll:");
+			
+			// declaring Roman letters to their corresponding value
+			int i = 1;
+			int v = 5;
+			int x = 10;
+			int l = 50;
+			int c = 100;
+			int d = 500;
+			int m = 1000;
+
+			// insert counter saves the cumulative value of decimal number
+			int counter = 0;
+
+			// expects string from user and reads it from the console & changes every letter
+			// to an upper case letter
+			String rom = sc.nextLine().toUpperCase();
+
+			// for loop runs through each element of the string sequentially
+			for (int j = 0; j < rom.length(); j++) {
+
+				// saves current letter
+				char currentChar = rom.charAt(j);
+
+				// saves current value
+				int currentValue = 0;
+
+				// if current letter is I it adds 1 to current value unless after I comes V or
+				// X, then it adds -1 to the current value
+				if (currentChar == 'I') {
+
+					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'V' || rom.charAt(j + 1) == 'X')) {
+						currentValue = -i;
+					}
+
+					// if right after I there is L or C or D or M or the third letter after I is I
+					// the roman letter is wrong
+					else if (j + 1 < rom.length()
+							&& (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C' || rom.charAt(j + 1) == 'D'
+									|| rom.charAt(j + 1) == 'M' || j + 3 < rom.length() && rom.charAt(j + 3) == 'I')) {
+						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+						break;
+					} else {
+						currentValue = i;
+					}
+				}
+				// if the current letter is V it adds 5 to the current value
+				else if (currentChar == 'V') {
+
+					// if right after V isn't I the roman letter is wrong
+					if (j + 1 < rom.length() && rom.charAt(j + 1) != 'I') {
+						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+						break;
+					} else {
+						currentValue = v;
+					}
+
+					// if the current letter is X it adds 10 to the current Value unless after the X
+					// comes L or C, then it adds -10 to the current value
+
+				} else if (currentChar == 'X') {
+
+					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C')) {
+						currentValue = -x;
+					}
+
+					// if right after X comes D or M or the third letter after X is X the roman
+					// letter is wrong
+					else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M'
+							|| j + 3 < rom.length() && rom.charAt(j + 3) == 'X')) {
+						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+						break;
+					} else {
+						currentValue = x;
+					}
+				}
+				// if the current letter is L it adds 50 to the current value
+				else if (currentChar == 'L') {
+
+					// if right after L comes L or C or D or M the roman letter is wrong
+					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C'
+							|| rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
+						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+						break;
+					} else {
+						currentValue = l;
+					}
+				}
+				// if the current letter is C it adds 100 to the current value except after C
+				// comes D or M, then it adds -100 to the current value
+				else if (currentChar == 'C') {
+
+					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
+						currentValue = -c;
+					}
+
+					// if the third letter after C is C the roman letter is wrong
+					else if (j + 3 < rom.length() && rom.charAt(j + 1) == 'C' && rom.charAt(j + 2) == 'C'
+							&& rom.charAt(j + 3) == 'C') {
+						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+						break;
+					} else {
+						currentValue = c;
+					}
+				}
+
+				// if the current letter is D it adds 500 to the current value
+				// if right after D comes D the roman letter is wrong
+				else if (currentChar == 'D') {
+					if (j + 1 < rom.length() && rom.charAt(j + 1) == 'D') {
+						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+						break;
+					} else {
+						currentValue = d;
+					}
+				}
+
+				// if the current letter is M it adds 1000 to the current value
+				// if right after M comes M the roman letter is wrong
+				else if (currentChar == 'M') {
+					if (j + 3 < rom.length() && rom.charAt(j + 1) == 'M'
+							&& (rom.charAt(j + 2) == 'M' && rom.charAt(j + 3) == 'M')) {
+						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+						break;
+					} else {
+						currentValue = m;
+					}
+				}
+				// if the current letter is not a roman letter the console point it out and the
+				// for loop ends immediately
+				else {
+					System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
+					break;
+				}
+				// adds the current value (final value) to the counter
+				counter += currentValue;
+			}
+
+			System.out.println("Die Dezimalzahl ist: " + counter);
+
+			System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
+
+			choice = sc.nextLine();
+
+			// if the choice is "j" the loop repeats
+		} while (choice.equalsIgnoreCase("j"));
+		
+	}
+}
