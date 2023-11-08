@@ -47,6 +47,8 @@ public class Testat_1 {
 	}
 
 	public static void dezimalInRömisch(Scanner sc) {
+
+		// saves users input
 		String choice;
 
 		do {
@@ -64,7 +66,8 @@ public class Testat_1 {
 				if (dez >= 4000) {
 					System.out.println(
 							"Dieser Rechner bietet nur die Möglichkeit Dezimalzahlen bis einschlißlich 3999 umzurechnen");
-					dez = 0;
+					dez = 4000;
+					break;
 					// if the decimal number is 1000 or bigger "M" is added to the roman Number and
 					// 1000 is subtracted from the decimal number
 				} else if (dez >= 1000) {
@@ -132,13 +135,15 @@ public class Testat_1 {
 					dez = dez - 1;
 				}
 			}
-			System.out.println("Die Dezimalzahl in römischen Buchstaben lautet: " + rom);
 
+			if (dez < 4000) {
+				System.out.println("Die Dezimalzahl in römischen Buchstaben lautet: " + rom);
+			}
 			// Discard the line break after entering "j" or "n".
 			sc.nextLine();
 
 			System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
-			
+
 			choice = sc.nextLine();
 
 			// if the choice equals "j" the loop repeats
@@ -148,9 +153,10 @@ public class Testat_1 {
 
 	public static void römischInDezimal(Scanner sc) {
 
+		// saves users input
 		String choice;
-		
-		//clears the line break from the scanner
+
+		// clears the line break from the scanner
 		sc.nextLine();
 
 		do {
@@ -158,7 +164,7 @@ public class Testat_1 {
 			// asking user for decimal number
 			System.out.println(
 					"Bitte geben Sie eine römische Zahl ein, welche in eine Dezimalzahl umgerechnet werden soll:");
-			
+
 			// declaring Roman letters to their corresponding value
 			int i = 1;
 			int v = 5;
@@ -168,7 +174,7 @@ public class Testat_1 {
 			int d = 500;
 			int m = 1000;
 
-			// insert counter saves the cumulative value of decimal number
+			// saves final value of the decimal number
 			int counter = 0;
 
 			// expects string from user and reads it from the console & changes every letter
@@ -181,25 +187,27 @@ public class Testat_1 {
 				// saves current letter
 				char currentChar = rom.charAt(j);
 
-				// saves current value
+				// saves current value of the decimal number
 				int currentValue = 0;
 
 				// if current letter is I it adds 1 to current value unless after I comes V or
 				// X, then it adds -1 to the current value
 				if (currentChar == 'I') {
 
-					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'V' || rom.charAt(j + 1) == 'X')) {
-						currentValue = -i;
-					}
-
 					// if right after I there is L or C or D or M or the third letter after I is I
 					// the roman letter is wrong
-					else if (j + 1 < rom.length()
+					if (j + 1 < rom.length()
 							&& (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C' || rom.charAt(j + 1) == 'D'
 									|| rom.charAt(j + 1) == 'M' || j + 3 < rom.length() && rom.charAt(j + 3) == 'I')) {
 						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 						break;
-					} else {
+					}
+
+					else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'V' || rom.charAt(j + 1) == 'X')) {
+						currentValue = -i;
+					}
+
+					else {
 						currentValue = i;
 					}
 				}
@@ -210,6 +218,7 @@ public class Testat_1 {
 					if (j + 1 < rom.length() && rom.charAt(j + 1) != 'I') {
 						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 						break;
+
 					} else {
 						currentValue = v;
 					}
@@ -219,17 +228,19 @@ public class Testat_1 {
 
 				} else if (currentChar == 'X') {
 
-					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C')) {
-						currentValue = -x;
-					}
-
 					// if right after X comes D or M or the third letter after X is X the roman
 					// letter is wrong
-					else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M'
+					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M'
 							|| j + 3 < rom.length() && rom.charAt(j + 3) == 'X')) {
 						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 						break;
-					} else {
+					}
+
+					else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'L' || rom.charAt(j + 1) == 'C')) {
+						currentValue = -x;
+					}
+
+					else {
 						currentValue = x;
 					}
 				}
@@ -241,6 +252,7 @@ public class Testat_1 {
 							|| rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
 						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 						break;
+
 					} else {
 						currentValue = l;
 					}
@@ -249,16 +261,18 @@ public class Testat_1 {
 				// comes D or M, then it adds -100 to the current value
 				else if (currentChar == 'C') {
 
-					if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
-						currentValue = -c;
-					}
-
 					// if the third letter after C is C the roman letter is wrong
-					else if (j + 3 < rom.length() && rom.charAt(j + 1) == 'C' && rom.charAt(j + 2) == 'C'
+					if (j + 3 < rom.length() && rom.charAt(j + 1) == 'C' && rom.charAt(j + 2) == 'C'
 							&& rom.charAt(j + 3) == 'C') {
 						System.out.println("Die von Ihnen eingegebene römische Zahl ist falsch");
 						break;
-					} else {
+					}
+
+					else if (j + 1 < rom.length() && (rom.charAt(j + 1) == 'D' || rom.charAt(j + 1) == 'M')) {
+						currentValue = -c;
+					}
+
+					else {
 						currentValue = c;
 					}
 				}
@@ -295,14 +309,16 @@ public class Testat_1 {
 				counter += currentValue;
 			}
 
-			System.out.println("Die Dezimalzahl ist: " + counter);
-
+			if (counter > 0) {
+				System.out.println("Die Dezimalzahl ist: " + counter);
+			}
 			System.out.println("Möchten Sie eine weitere Zahl umrechnen? (j/n):");
 
+			// sets choice to the users input
 			choice = sc.nextLine();
 
 			// if the choice is "j" the loop repeats
 		} while (choice.equalsIgnoreCase("j"));
-		
+
 	}
 }
